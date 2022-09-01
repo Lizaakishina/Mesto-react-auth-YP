@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Route, Navigate, useHistory } from "react-router-dom";
 
 import Main from "./Main";
 import Footer from "./Footer";
@@ -37,7 +37,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [email, setEmail] = React.useState("");
 
-  const navigate = useNavigate();
+  const Navigate = useHistory();
 
   /**
    * Получение информации о пользователе и исходных карточек при открытии страницы
@@ -150,11 +150,11 @@ function App() {
         .then((res) => {
           setEmail(res.data.email);
           setIsLoggedIn(true);
-          navigate("/");
+          Navigate("/");
         })
         .catch(console.error);
     }
-  }, [navigate]);
+  }, [Navigate]);
 
   function handleLogin() {
     setIsLoggedIn(true);
@@ -168,7 +168,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="content">
-        <Routes>
+        <>
           <Route
             path="/"
             element={
@@ -209,7 +209,7 @@ function App() {
               isLoggedIn ? <Navigate to="/" /> : <Navigate to="/sign-in" />
             }
           />
-        </Routes>
+        </>
         <Footer />
 
         {/* Попапы */}
