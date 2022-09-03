@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Header from "./Header";
 import auth from "../utils/auth";
 
@@ -11,7 +11,7 @@ function Register({ handleShowInfoMessage }) {
 
   const [inputs, setInputs] = React.useState(defaultValues);
 
-  const navigate = useNavigate();
+  const navigate = useHistory();
 
   function handleChange(event) {
     const value = event.target.value;

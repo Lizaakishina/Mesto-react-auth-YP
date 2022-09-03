@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Route, BrowserRouter, Redirect , useHistory } from "react-router-dom";
 
 import Main from "./Main";
 import Footer from "./Footer";
@@ -37,7 +37,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [email, setEmail] = React.useState("");
 
-  const navigate = useNavigate();
+  const navigate = useHistory();
 
   /**
    * Получение информации о пользователе и исходных карточек при открытии страницы
@@ -168,7 +168,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="content">
-        <Routes>
+        <BrowserRouter>
           <Route
             path="/"
             element={
@@ -206,10 +206,10 @@ function App() {
           <Route
             path="*"
             element={
-              isLoggedIn ? <Navigate to="/" /> : <Navigate to="/sign-in" />
+              isLoggedIn ? <Redirect  to="/" /> : <Redirect  to="/sign-in" />
             }
           />
-        </Routes>
+        </BrowserRouter>
         <Footer />
 
         {/* Попапы */}
