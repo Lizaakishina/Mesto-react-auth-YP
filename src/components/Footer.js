@@ -6,7 +6,7 @@ function Footer() {
     <footer className="footer content__element">
       <p className="footer__copyright">
         &copy;&nbsp;{currentYear <= 2022 ? "2022" : `2022&ndash;${currentYear}`}{" "}
-        Студенты Яндекс.Практикума
+        Акишина Елизавета
       </p>
     </footer>
   );

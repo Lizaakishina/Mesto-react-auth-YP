@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../images/mesto.svg";
+import logo from "../images/header__logo_light.svg";
 
 function Header({ children, isWrappable }) {
   const [isMenuOpened, setIsMenuOpened] = React.useState(false);

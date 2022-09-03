@@ -4,6 +4,9 @@ import PopupWithForm from "./PopupWithForm";
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   const avatarRef = React.useRef();
 
+  /**
+   * Сброс значений инпутов при открытии/закрытии попапа или при смене пользователя
+   */
   React.useEffect(() => {
     avatarRef.current.value = "";
   }, [isOpen]);

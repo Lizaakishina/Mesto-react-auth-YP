@@ -4,7 +4,10 @@ import PopupWithForm from "./PopupWithForm";
 function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   const [name, setName] = React.useState("");
   const [link, setLink] = React.useState("");
-  
+
+  /**
+   * Сброс значений инпутов при открытии/закрытии попапа
+   */
   React.useEffect(() => {
     setName("");
     setLink("");
