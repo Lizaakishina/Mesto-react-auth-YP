@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import PopupWithForm from "./PopupWithForm";
-import FieldSet from "../Fieldset";
+import FieldSet from "./Fieldset";
 import Popup from "./Popup";
 
 function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {

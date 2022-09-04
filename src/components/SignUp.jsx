@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import useFormValidation from "../hooks/useFormValidation";
 import FieldSet from "./Fieldset";
 
-
 const SignUp = ({title, titleBtn, isLogin, onSubmit }) => {
   const userEmail = useRef();
   const userPassword = useRef();

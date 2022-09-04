@@ -5,20 +5,19 @@ import api from "../utils/Api";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-import EditProfilePopup from './popup/EditProfilePopup';
-import EditAvatarPopup from './popup/EditAvatarPopup'
-import AddPlacePopup from "./popup/AddPlacePopup";
-import DeleteCardPopup from "./popup/DeleteCardPopup";
-import Popup from "./popup/Popup";
-import PopupWithImage from "./popup/PopupWithImage";
+import EditProfilePopup from './EditProfilePopup';
+import EditAvatarPopup from './EditAvatarPopup'
+import AddPlacePopup from "./AddPlacePopup";
+import DeleteCardPopup from "./DeleteCardPopup";
+import Popup from "./Popup";
+import PopupWithImage from "./PopupWithImage";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from './Register';
 import Login from './Login';
-import InfoTooltip from './popup/InfoTooltip';
-import { getUserData, authorize, register } from "../utils/auth"; // На самом деле странно, что на gitHub он не 
-import AcceptRegist from '../images/Accept-registration.png';     // запушился измененный, поскольку я переименовал файл после первой итерации
-import RejectRegist from '../images/rejectRegistration.png'
-
+import InfoTooltip from './InfoTooltip';
+import { getUserData, authorize, register } from "../utils/auth";
+import AcceptRegist from '../images/Tick.png';
+import RejectRegist from '../images/Cross.png';
 
 function App({history}) {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);

@@ -1,15 +1,14 @@
 import React, { useRef, useState, useEffect } from "react";
 import Popup from "./Popup";
 import PopupWithForm from "./PopupWithForm";
-import FieldSet from "../Fieldset";
-import useFormValidation from "../../hooks/useFormValidation";
+import FieldSet from "./Fieldset";
+import useFormValidation from "./../hooks/useFormValidation";
 
 function AddPlacePopup({isOpen, onClose, onAddPlace}) {
   const linkInputRef = useRef();
   const nameInputRef = useRef();
   const [buttonSubmitName, setButtonSubmitName] = useState('Создать');
   const {isButtonValid, handleTheFirstInputChange, handleTheSecondInputChange, resetValid} = useFormValidation(nameInputRef, linkInputRef);
-
 
   useEffect(() => {
     nameInputRef.current.value='';
