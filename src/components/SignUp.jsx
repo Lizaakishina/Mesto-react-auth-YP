@@ -29,7 +29,6 @@ const SignUp = ({title, titleBtn, isLogin, onSubmit }) => {
           minLength="2"
           maxLength="40"
           inputRef={userEmail}
-          onChange={handleTheFirstInputChange}
         />
 
         <Input 
@@ -40,7 +39,6 @@ const SignUp = ({title, titleBtn, isLogin, onSubmit }) => {
           minLength="8"
           maxLength="50"
           inputRef={userPassword}
-          onChange={handleTheSecondInputChange}
         />
         <button
           className={`button button_type_authorization ${!isButtonValid && "button_inactive"} ${isLogin && "button_type_login"}`}

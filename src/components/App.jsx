@@ -16,8 +16,8 @@ import Register from './Register';
 import Login from './Login';
 import InfoTooltip from './InfoTooltip';
 import { checkToken, authorize, register } from "../utils/auth";
-import AcceptRegist from '../images/Tick.png';
-import RejectRegist from '../images/Cross.png';
+import acceptRegist from '../images/Tick.png';
+import rejectRegist from '../images/Cross.png';
 
 function App({history}) {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
@@ -38,7 +38,7 @@ function App({history}) {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      getUserEmail(token);
+      handleTokenCheck(token);
     }
   }, []);
 
@@ -55,7 +55,7 @@ function App({history}) {
     }
   }, [loggedIn])
 
-  const getUserEmail = async (token) => {
+  const handleTokenCheck = async (token) => {
     try{
       const res = await checkToken(token);
       if(res.data.email) {
@@ -106,39 +106,33 @@ function App({history}) {
     api.patchUserInfo(userData)
       .then((res) => {
         setCurrentUser(res);
+        closeAllPopups();
       })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => {
-        closeAllPopups();
-      });
   }
 
   function handleUpdateAvatar(avatarLink) {
     api.patchAvatarInfo(avatarLink)
     .then((res) => {
       setCurrentUser(res);
+      closeAllPopups();
     })
     .catch((err) => {
       console.log(err);
     })
-    .finally(() => {
-      closeAllPopups();
-    });
   }
 
   function handleAddPlaceSubmit(newCard) {
     api.addNewCard(newCard)
       .then((newCard) => {
         setCards([newCard, ...cards]);
+        closeAllPopups();
       })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => {
-        closeAllPopups();
-      });
   }
 
   function handleCardLike(card) {
@@ -167,15 +161,13 @@ function App({history}) {
     api.deleteCard(card)
       .then(() => {
         setCards((cards) => {
+          closeAllPopups();
           return cards.filter(item => item !== card);
         })
       })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => {
-        closeAllPopups();
-      });
   }
 
   const handleSignOut = () => {
@@ -195,7 +187,7 @@ function App({history}) {
       history.push('/');
     } catch {
       setIsInfoTooltipPopupOpen(true);
-      setImageForInfoTooltip(RejectRegist);
+      setImageForInfoTooltip(rejectRegist);
       setTextForInfoTooltip("Неверный Email или пароль");
     }
   }
@@ -204,14 +196,14 @@ function App({history}) {
     try{
       const res = await register(email, password);
       setIsInfoTooltipPopupOpen(true);
-      setImageForInfoTooltip(AcceptRegist);
+      setImageForInfoTooltip(acceptRegist);
       setTextForInfoTooltip("Вы успешно зарегистрировались!");
       handleSignIn(email, password);
       setLoggedIn(true);
       history.push('/')
     } catch {
       setIsInfoTooltipPopupOpen(true);
-      setImageForInfoTooltip(RejectRegist);
+      setImageForInfoTooltip(rejectRegist);
       setTextForInfoTooltip("Что-то пошло не так! Попробуйте ещё раз.");
     }
   }
@@ -269,13 +261,13 @@ function App({history}) {
         />
 
         <Popup
-          name="image-zoom"
-          nameContainer="popup__container-image"
-          isOpen={isImagePopupOpen}
-          onClose = {closeAllPopups}
-        >
+          name="image-zoom" 
+          nameContainer="popup__container-image" 
+          isOpen={isImagePopupOpen} 
+          onClose = {closeAllPopups} 
+        > 
           <PopupWithImage 
-            card={selectedCard} 
+            card={selectedCard}
           />
         </Popup>
         
