@@ -27,36 +27,38 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
   }
 
   return(
-    <PopupWithForm 
-      name="add-image" 
-      title="Новое место"
-      nameContainer="popup__container"
-      isOpen={isOpen}
-      onClose={onClose}
-      titleBtn={buttonSubmitName}
-      onSubmit={handleSubmit}
-      isValid={isButtonValid}
-    >
-      <Input 
-        inputType="text"
-        inputClassType="place"
-        placeholder="Название"
-        id="input-name"
-        minLength="2"
-        maxLength="30"
-        inputRef={nameInputRef}
+    <Popup isOpen={isOpen} onClose={onClose}>
+      <PopupWithForm 
+        name="add-image" 
+        title="Новое место"
+        nameContainer="popup__container"
         isOpen={isOpen}
-      />
+        onClose={onClose}
+        titleBtn={buttonSubmitName}
+        onSubmit={handleSubmit}
+        isValid={isButtonValid}
+      >
+        <Input 
+          inputType="text"
+          inputClassType="place"
+          placeholder="Название"
+          id="input-name"
+          minLength="2"
+          maxLength="30"
+          inputRef={nameInputRef}
+          isOpen={isOpen}
+        />
       
-      <Input 
-        inputType="url"
-        inputClassType="link"
-        placeholder="Ссылка на картинку"
-        id="input-link"
-        inputRef={linkInputRef}
-        isOpen={isOpen}
-      />
-    </PopupWithForm>
+        <Input 
+          inputType="url"
+          inputClassType="link"
+          placeholder="Ссылка на картинку"
+          id="input-link"
+          inputRef={linkInputRef}
+          isOpen={isOpen}
+        />
+      </PopupWithForm>
+    </Popup>
   )
 }
 

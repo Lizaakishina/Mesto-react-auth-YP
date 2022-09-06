@@ -1,40 +1,42 @@
-import React, {useEffect} from "react";
+import { useEffect } from "react";
 
-function Popup({name, nameContainer, isOpen, onClose, children}) {
-  
+const Popup = ({ isOpen, name, onClose, children }) => {
+
+  useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    }
+    if(isOpen){
+      document.addEventListener('keydown', closeByEscape)
+    }
+    else{
+      document.removeEventListener('keydown', closeByEscape)
+    }
+  }, [isOpen, onClose])
+
   const handleOverlay = (e) => {
     if (e.target === e.currentTarget) {
         onClose();
     }
   }
 
-  useEffect(() => {
-    if (!isOpen) return;
-    const closeByEscape = (e) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    }
-    document.addEventListener('keydown', closeByEscape)
-    return () => document.removeEventListener('keydown', closeByEscape)
-  }, [isOpen, onClose])
-
   return (
     <div
-      className={`popup popup_type_${name} ${isOpen ? "popup_opened" : ""}`}
-      onMouseDown={handleOverlay}
+      className={`popup ${isOpen ? "popup_opened" : ""} popup_type_${name}`}
+      onClick={handleOverlay}
     >
-      <div className={nameContainer}>
-        <button
-          onClick={onClose}
-          type="button"
-          className="button button_type_close"
-          aria-label="Закрыть окно"
-        />
+     <div className={`popup__container popup__container_${name}`}>
         {children}
+        <button
+          className='button button_type_close'
+          type='button'
+          onClick={onClose}
+        />
       </div>
     </div>
   );
-}
+};
 
 export default Popup;
