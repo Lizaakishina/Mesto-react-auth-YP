@@ -6,15 +6,14 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCa
   const currentUser = useContext(CurrentUserContext);
 
   const cardElements = cards.map(card => (
-    <li key={card._id} className="card">
-      <Card 
-        key={card._id}
-        card={card}
-        onCardClick = {onCardClick}
-        onCardLike = {onCardLike}
-        onCardDelete = {onCardDelete}
-      />
-    </li>)
+    <Card 
+      key={card._id}
+      card={card}
+      onCardClick = {onCardClick}
+      onCardLike = {onCardLike}
+      onCardDelete = {onCardDelete}
+    />
+    )
   )
 
   return (
