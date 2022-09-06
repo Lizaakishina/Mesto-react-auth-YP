@@ -8,6 +8,7 @@ const Popup = ({ isOpen, name, onClose, children }) => {
         onClose();
       }
     }
+    //старший студент сказал сделать такую провреку по некоторым причинам
     if(isOpen){
       document.addEventListener('keydown', closeByEscape)
     }

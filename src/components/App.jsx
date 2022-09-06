@@ -9,7 +9,6 @@ import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup'
 import AddPlacePopup from "./AddPlacePopup";
 import DeleteCardPopup from "./DeleteCardPopup";
-import Popup from "./Popup";
 import PopupWithImage from "./PopupWithImage";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from './Register';
@@ -259,7 +258,7 @@ function App({history}) {
           onSubmit={handleCardDelete}
           card={cardToBeDeleted}
         />
-
+        
         <PopupWithImage
           name="image-zoom" 
           nameContainer="popup__container-image" 

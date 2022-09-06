@@ -1,6 +1,6 @@
 import React from "react";
 
-function PopupWithForm({ name, title, titleBtn, onSubmit, isValid, children, ...props}) {
+function PopupWithForm({ name, title, titleBtn, onSubmit, isValid, children }) {
   return (
     <>
       <h2 className="popup__title">{title}</h2>
