@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from "react";
 import Popup from "./Popup";
 import PopupWithForm from "./PopupWithForm";
-import FieldSet from "./Fieldset";
+import Input from "./Input";
 import { CurrentUserContext } from "../context/CurrentUserContext";
 
 function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
@@ -68,7 +68,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
         onSubmit={handleSubmit}
         isValid={isButtonValid}
         >
-        <FieldSet 
+        <Input 
           inputType="text"
           inputClassType="name"
           placeholder="Ваше имя"
@@ -80,7 +80,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
           isOpen={isOpen}
         />
 
-        <FieldSet 
+        <Input 
           inputType="text"
           inputClassType="job"
           placeholder="Информация о работе"

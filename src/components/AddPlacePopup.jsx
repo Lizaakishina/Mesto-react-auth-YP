@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Popup from "./Popup";
 import PopupWithForm from "./PopupWithForm";
-import FieldSet from "./Fieldset";
+import Input from "./Input";
 import useFormValidation from "./../hooks/useFormValidation";
 
 function AddPlacePopup({isOpen, onClose, onAddPlace}) {
@@ -40,7 +40,7 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
         onSubmit={handleSubmit}
         isValid={isButtonValid}
       >
-        <FieldSet 
+        <Input 
           inputType="text"
           inputClassType="place"
           placeholder="Название"
@@ -52,7 +52,7 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
           isOpen={isOpen}
         />
 
-        <FieldSet 
+        <Input 
           inputType="url"
           inputClassType="link"
           placeholder="Ссылка на картинку"

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function FieldSet({inputType, inputClassType, placeholder, id, minLength, maxLength, value, onChange, inputRef, isOpen}) {
+function Input({inputType, inputClassType, placeholder, id, minLength, maxLength, value, onChange, inputRef, isOpen}) {
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setIsValid] = useState(true);
 
@@ -41,4 +41,4 @@ function FieldSet({inputType, inputClassType, placeholder, id, minLength, maxLen
   )
 }
 
-export default FieldSet;
+export default Input;

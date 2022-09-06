@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import PopupWithForm from "./PopupWithForm";
-import FieldSet from "./Fieldset";
+import Input from "./Input";
 import Popup from "./Popup";
 
 function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
@@ -49,7 +49,7 @@ function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
         onSubmit={handleClick}
         isValid={isButtonValid}
       >
-        <FieldSet 
+        <Input 
           inputType="url"
           inputClassType="link"
           placeholder="Ссылка на картинку"
