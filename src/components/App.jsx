@@ -15,7 +15,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Register from './Register';
 import Login from './Login';
 import InfoTooltip from './InfoTooltip';
-import { getUserData, authorize, register } from "../utils/auth";
+import { checkToken, authorize, register } from "../utils/auth";
 import AcceptRegist from '../images/Tick.png';
 import RejectRegist from '../images/Cross.png';
 
@@ -57,7 +57,7 @@ function App({history}) {
 
   const getUserEmail = async (token) => {
     try{
-      const res = await getUserData(token);
+      const res = await checkToken(token);
       if(res.data.email) {
         setUserEmail(res.data.email);
         setLoggedIn(true);

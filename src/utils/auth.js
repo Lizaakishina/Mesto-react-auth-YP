@@ -35,7 +35,7 @@ export const authorize = async (email, password) => {
   return data;
 }
 
-export const getUserData = async (token) => {
+export const checkToken = async (token) => {
   const res = await fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
