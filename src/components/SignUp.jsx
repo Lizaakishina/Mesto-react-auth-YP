@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import useFormValidation from "../hooks/useFormValidation";
 import Input from "./Input";
@@ -6,7 +6,7 @@ import Input from "./Input";
 const SignUp = ({title, titleBtn, isLogin, onSubmit }) => {
   const userEmail = useRef();
   const userPassword = useRef();
-  const {isButtonValid, handleTheFirstInputChange, handleTheSecondInputChange} = useFormValidation(userEmail, userPassword);
+  const {isButtonValid} = useFormValidation(userEmail, userPassword);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +43,6 @@ const SignUp = ({title, titleBtn, isLogin, onSubmit }) => {
         <button
           className={`button button_type_authorization ${!isButtonValid && "button_inactive"} ${isLogin && "button_type_login"}`}
           value={titleBtn}
-          id="button-save"
           disabled={!isButtonValid}
         >
           {titleBtn}

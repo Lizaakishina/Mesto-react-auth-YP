@@ -8,7 +8,7 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
   const linkInputRef = useRef();
   const nameInputRef = useRef();
   const [buttonSubmitName, setButtonSubmitName] = useState('Создать');
-  const {isButtonValid, handleTheFirstInputChange, handleTheSecondInputChange, resetValid} = useFormValidation(nameInputRef, linkInputRef);
+  const {isButtonValid, resetValid} = useFormValidation(nameInputRef, linkInputRef);
 
   useEffect(() => {
     nameInputRef.current.value='';
@@ -27,42 +27,36 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
   }
 
   return(
-    <Popup 
-      name="add-image"
+    <PopupWithForm 
+      name="add-image" 
+      title="Новое место"
       nameContainer="popup__container"
       isOpen={isOpen}
       onClose={onClose}
+      titleBtn={buttonSubmitName}
+      onSubmit={handleSubmit}
+      isValid={isButtonValid}
     >
-      <PopupWithForm 
-        name="add-image" 
-        title="Новое место" 
-        titleBtn={buttonSubmitName}
-        onSubmit={handleSubmit}
-        isValid={isButtonValid}
-      >
-        <Input 
-          inputType="text"
-          inputClassType="place"
-          placeholder="Название"
-          id="input-name"
-          minLength="2"
-          maxLength="30"
-          inputRef={nameInputRef}
-          onChange={handleTheFirstInputChange}
-          isOpen={isOpen}
-        />
-
-        <Input 
-          inputType="url"
-          inputClassType="link"
-          placeholder="Ссылка на картинку"
-          id="input-link"
-          inputRef={linkInputRef}
-          onChange={handleTheSecondInputChange}
-          isOpen={isOpen}
-        />
-      </PopupWithForm>
-    </Popup>
+      <Input 
+        inputType="text"
+        inputClassType="place"
+        placeholder="Название"
+        id="input-name"
+        minLength="2"
+        maxLength="30"
+        inputRef={nameInputRef}
+        isOpen={isOpen}
+      />
+      
+      <Input 
+        inputType="url"
+        inputClassType="link"
+        placeholder="Ссылка на картинку"
+        id="input-link"
+        inputRef={linkInputRef}
+        isOpen={isOpen}
+      />
+    </PopupWithForm>
   )
 }
 

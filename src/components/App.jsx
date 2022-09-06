@@ -260,28 +260,22 @@ function App({history}) {
           card={cardToBeDeleted}
         />
 
-        <Popup
+        <PopupWithImage
           name="image-zoom" 
           nameContainer="popup__container-image" 
           isOpen={isImagePopupOpen} 
           onClose = {closeAllPopups} 
-        > 
-          <PopupWithImage 
-            card={selectedCard}
-          />
-        </Popup>
+          card={selectedCard}
+        />
         
-        <Popup
+        <InfoTooltip
           name="info"
           nameContainer="popup__container-info"
           isOpen={isInfoTooltipPopupOpen}
-          onClose={closeAllPopups}
-        >
-          <InfoTooltip 
-            image={imageForInfoTooltip}
-            text={textForInfoTooltip}
-          />
-        </Popup>
+          onClose={closeAllPopups} 
+          image={imageForInfoTooltip}
+          text={textForInfoTooltip}
+        />
       </CurrentUserContext.Provider>
   );
 }
