@@ -1,9 +1,9 @@
 import React from "react";
 import Popup from "./Popup";
 
-function PopupWithImage({isOpen, onClose, card}) {
-  return(
-    <Popup isOpen={isOpen} onClose={onClose}>
+function PopupWithImage({ isOpen, onClose, card, nameContainer }) {
+  return (
+    <Popup isOpen={isOpen} onClose={onClose} nameContainer="popup__container-image">
       <img 
         className="popup__image"
         src={card.link}

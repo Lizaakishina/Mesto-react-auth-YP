@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import PopupWithForm from "./PopupWithForm";
 import Input from "./Input";
-import Popup from "./Popup";
 
 function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
   const inputRef = useRef();
@@ -36,30 +35,26 @@ function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
   }
 
   return(
-    <Popup 
+    <PopupWithForm 
       name="avatar"
+      title="Обновить аватар" 
+      titleBtn={buttonSubmitName}
+      onSubmit={handleClick}
+      isValid={isButtonValid}
       nameContainer="popup__container"
       isOpen={isOpen}
       onClose={onClose}
     >
-      <PopupWithForm 
-        name="avatar"
-        title="Обновить аватар" 
-        titleBtn={buttonSubmitName}
-        onSubmit={handleClick}
-        isValid={isButtonValid}
-      >
-        <Input 
-          inputType="url"
-          inputClassType="link"
-          placeholder="Ссылка на картинку"
-          id="input-avatar"
-          inputRef={inputRef}
-          isOpen={isOpen}
-          onChange={handleLinkChange}
-        />
-      </PopupWithForm>
-    </Popup>
+      <Input 
+        inputType="url"
+        inputClassType="link"
+        placeholder="Ссылка на картинку"
+        id="input-avatar"
+        inputRef={inputRef}
+        isOpen={isOpen}
+        onChange={handleLinkChange}
+      />
+    </PopupWithForm>
   )
 }
 

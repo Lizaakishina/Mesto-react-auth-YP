@@ -3,7 +3,7 @@ import Popup from "./Popup";
 
 const InfoTooltip = ({isOpen, onClose, image, text }) => {
   return (
-    <Popup isOpen={isOpen} onClose={onClose}>
+    <Popup isOpen={isOpen} onClose={onClose} nameContainer="popup__container-info">
       <img src={image} className="popup__union" alt="Значок галочки" />
       <h2 className="popup__title-info">{text}</h2>
     </Popup>

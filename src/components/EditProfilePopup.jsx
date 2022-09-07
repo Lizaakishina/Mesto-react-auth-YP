@@ -1,5 +1,4 @@
 import React, {useState, useContext, useEffect} from "react";
-import Popup from "./Popup";
 import PopupWithForm from "./PopupWithForm";
 import Input from "./Input";
 import { CurrentUserContext } from "../context/CurrentUserContext";
@@ -55,44 +54,40 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
   }, [isNameValid, isAboutValid])
 
   return(
-    <Popup 
-      name="edit-profile"
+    <PopupWithForm 
+      name="edit-profile" 
+      title="Редактировать профиль" 
+      titleBtn={buttonSubmitName}
+      onSubmit={handleSubmit}
+      isValid={isButtonValid}
       nameContainer="popup__container"
       isOpen={isOpen}
       onClose={onClose}
     >
-      <PopupWithForm 
-        name="edit-profile" 
-        title="Редактировать профиль" 
-        titleBtn={buttonSubmitName}
-        onSubmit={handleSubmit}
-        isValid={isButtonValid}
-        >
-        <Input 
-          inputType="text"
-          inputClassType="name"
-          placeholder="Ваше имя"
-          id="input-title"
-          minLength="2"
-          maxLength="40"
-          value={name}
-          onChange={handleNameChange}
-          isOpen={isOpen}
-        />
+      <Input 
+        inputType="text"
+        inputClassType="name"
+        placeholder="Ваше имя"
+        id="input-title"
+        minLength="2"
+        maxLength="40"
+        value={name}
+        onChange={handleNameChange}
+        isOpen={isOpen}
+      />
 
-        <Input 
-          inputType="text"
-          inputClassType="job"
-          placeholder="Информация о работе"
-          id="input-job"
-          minLength="2"
-          maxLength="200"
-          value={description}
-          onChange={handleDescriptionChange}
-          isOpen={isOpen}
-        />
-      </PopupWithForm>
-    </Popup>
+      <Input 
+        inputType="text"
+        inputClassType="job"
+        placeholder="Информация о работе"
+        id="input-job"
+        minLength="2"
+        maxLength="200"
+        value={description}
+        onChange={handleDescriptionChange}
+        isOpen={isOpen}
+      />
+    </PopupWithForm>
   )
 }
 

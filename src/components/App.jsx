@@ -18,7 +18,7 @@ import { checkToken, authorize, register } from "../utils/auth";
 import acceptRegist from '../images/Tick.png';
 import rejectRegist from '../images/Cross.png';
 
-function App({history}) {
+function App({ history, isOpen, onClose}) {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
@@ -270,8 +270,8 @@ function App({history}) {
         <InfoTooltip
           name="info"
           nameContainer="popup__container-info"
-          isOpen={isInfoTooltipPopupOpen}
-          onClose={closeAllPopups} 
+          isOpen={isOpen}
+          onClose={onClose} 
           image={imageForInfoTooltip}
           text={textForInfoTooltip}
         />
