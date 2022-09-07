@@ -1,7 +1,7 @@
 import React from "react";
 import Popup from "./Popup";
 
-function PopupWithImage({ isOpen, onClose, card, nameContainer }) {
+function PopupWithImage({ isOpen, onClose, card }) {
   return (
     <Popup isOpen={isOpen} onClose={onClose} nameContainer="popup__container-image">
       <img 
@@ -11,6 +11,6 @@ function PopupWithImage({ isOpen, onClose, card, nameContainer }) {
       />
       <h2 className="popup__text">{card.name}</h2>
     </Popup>
-  );
+  )
 }
 export default PopupWithImage;

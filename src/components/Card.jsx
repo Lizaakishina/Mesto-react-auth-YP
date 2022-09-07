@@ -59,7 +59,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
         </div>
       </li>
     </>
-  );
+  )
 }
 
 export default Card;

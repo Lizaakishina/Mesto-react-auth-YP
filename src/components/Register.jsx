@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import SignUp from "./SignUp";
 
-const Register = ({onRegistration, loggedIn}) => {
+const Register = ({ onRegistration, loggedIn }) => {
 
   return(
     <>

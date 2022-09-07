@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from '../images/Logo.svg';
 import line from '../images/Line.png'
 
-function Header({linkTitle, link, onSignOut, email, loggedIn}) {
+function Header({ linkTitle, link, onSignOut, email, loggedIn }) {
   const [isButtonMenu, setIsButtonMenu] = useState(false);
 
   const handleMenuClick = () => {
@@ -34,7 +34,7 @@ function Header({linkTitle, link, onSignOut, email, loggedIn}) {
         </button>
       </div>
     </header>
-  );
+  )
 }
 
 export default Header;

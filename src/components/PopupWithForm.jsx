@@ -18,7 +18,7 @@ function PopupWithForm({ isOpen, onClose, name, title, titleBtn, onSubmit, isVal
         </button>
       </form>
     </Popup>
-  );
+  )
 }
 
 export default PopupWithForm;

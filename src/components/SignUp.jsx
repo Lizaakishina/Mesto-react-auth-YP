@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useFormValidation from "../hooks/useFormValidation";
 import Input from "./Input";
 
-const SignUp = ({title, titleBtn, isLogin, onSubmit, value }) => {
+const SignUp = ({ title, titleBtn, isLogin, onSubmit, value }) => {
   const userEmail = useRef();
   const userPassword = useRef();
   const {isButtonValid, handleTheFirstInputChange, handleTheSecondInputChange} = useFormValidation(userEmail, userPassword);

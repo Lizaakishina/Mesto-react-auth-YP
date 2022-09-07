@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const Popup = ({ isOpen, name, onClose, children, nameContainer }) => {
+const Popup = ({ isOpen, name, onClose, children }) => {
 
   useEffect(() => {
     const closeByEscape = (e) => {
@@ -36,8 +36,7 @@ const Popup = ({ isOpen, name, onClose, children, nameContainer }) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Popup;
-//`popup__container popup__container_${name}`

@@ -3,7 +3,7 @@ import PopupWithForm from "./PopupWithForm";
 import Input from "./Input";
 import useFormValidation from "./../hooks/useFormValidation";
 
-function AddPlacePopup({isOpen, onClose, onAddPlace}) {
+function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   const linkInputRef = useRef();
   const nameInputRef = useRef();
   const [buttonSubmitName, setButtonSubmitName] = useState('Создать');

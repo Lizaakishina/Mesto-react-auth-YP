@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-function Input({inputType, inputClassType, placeholder, id, minLength, maxLength, value, onChange, inputRef, isOpen}) {
+function Input({ inputType, inputClassType, placeholder, id, minLength, maxLength, value, onChange, inputRef, isOpen }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setIsValid] = useState(true);
 
   useEffect(() => {
     setIsValid(true);
-  }, [isOpen]);
+  }, [isOpen])
 
   function handleErrorMessage(e) {
     if (!e.target.validity.valid) {

@@ -1,8 +1,8 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 import Input from "./Input";
 
-function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
+function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   const inputRef = useRef();
   const [isLinkValid, setIsLinkValid] = useState (false);
   const [isButtonValid, setIsButtonValid] = useState (false);
@@ -16,7 +16,7 @@ function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
 
   useEffect(() => {
     setIsButtonValid(isLinkValid);
-  }, [isLinkValid]);
+  }, [isLinkValid])
 
   function handleClick(e) {
     e.preventDefault();

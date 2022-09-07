@@ -2,7 +2,7 @@ import React from "react";
 import PopupWithForm from "./PopupWithForm";
 import Popup from "./Popup";
 
-function DeleteCardPopup({isOpen, onClose, onSubmit, card}) {
+function DeleteCardPopup({ isOpen, onClose, onSubmit, card }) {
   
   function handleClick(e) {
     e.preventDefault();

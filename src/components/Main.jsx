@@ -1,8 +1,8 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Card from "./Card";
 import { CurrentUserContext } from "../context/CurrentUserContext";
 
-function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCardLike, onCardDelete}) {
+function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCardLike, onCardDelete }) {
   const currentUser = useContext(CurrentUserContext);
 
   const cardElements = cards.map(card => (
@@ -58,6 +58,6 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCa
         </ul>
       </section>
     </main>
-  );
+  )
 }
 export default Main;
