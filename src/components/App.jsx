@@ -159,8 +159,8 @@ function App({history}) {
   function handleCardDelete(card) {
     api.deleteCard(card)
       .then(() => {
+        closeAllPopups();
         setCards((cards) => {
-          closeAllPopups();
           return cards.filter(item => item !== card);
         })
       })

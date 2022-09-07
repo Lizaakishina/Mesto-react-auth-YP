@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import Popup from "./Popup";
 import PopupWithForm from "./PopupWithForm";
 import Input from "./Input";
 import useFormValidation from "./../hooks/useFormValidation";
@@ -27,38 +26,36 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
   }
 
   return(
-    <Popup isOpen={isOpen} onClose={onClose}>
-      <PopupWithForm 
-        name="add-image" 
-        title="Новое место"
-        nameContainer="popup__container"
+    <PopupWithForm 
+      name="add-image" 
+      title="Новое место"
+      nameContainer="popup__container"
+      isOpen={isOpen}
+      onClose={onClose}
+      titleBtn={buttonSubmitName}
+      onSubmit={handleSubmit}
+      isValid={isButtonValid}
+    >
+      <Input 
+        inputType="text"
+        inputClassType="place"
+        placeholder="Название"
+        id="input-name"
+        minLength="2"
+        maxLength="30"
+        inputRef={nameInputRef}
         isOpen={isOpen}
-        onClose={onClose}
-        titleBtn={buttonSubmitName}
-        onSubmit={handleSubmit}
-        isValid={isButtonValid}
-      >
-        <Input 
-          inputType="text"
-          inputClassType="place"
-          placeholder="Название"
-          id="input-name"
-          minLength="2"
-          maxLength="30"
-          inputRef={nameInputRef}
-          isOpen={isOpen}
-        />
+      />
       
-        <Input 
-          inputType="url"
-          inputClassType="link"
-          placeholder="Ссылка на картинку"
-          id="input-link"
-          inputRef={linkInputRef}
-          isOpen={isOpen}
-        />
-      </PopupWithForm>
-    </Popup>
+      <Input 
+        inputType="url"
+        inputClassType="link"
+        placeholder="Ссылка на картинку"
+        id="input-link"
+        inputRef={linkInputRef}
+        isOpen={isOpen}
+      />
+    </PopupWithForm>
   )
 }
 

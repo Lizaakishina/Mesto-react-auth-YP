@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import useFormValidation from "../hooks/useFormValidation";
 import Input from "./Input";
 
-const SignUp = ({title, titleBtn, isLogin, onSubmit }) => {
+const SignUp = ({title, titleBtn, isLogin, onSubmit, value }) => {
   const userEmail = useRef();
   const userPassword = useRef();
-  const {isButtonValid} = useFormValidation(userEmail, userPassword);
+  const {isButtonValid, handleTheFirstInputChange, handleTheSecondInputChange} = useFormValidation(userEmail, userPassword);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,6 +29,8 @@ const SignUp = ({title, titleBtn, isLogin, onSubmit }) => {
           minLength="2"
           maxLength="40"
           inputRef={userEmail}
+          value={value}
+          onChange={handleTheFirstInputChange}
         />
 
         <Input 
@@ -39,6 +41,8 @@ const SignUp = ({title, titleBtn, isLogin, onSubmit }) => {
           minLength="8"
           maxLength="50"
           inputRef={userPassword}
+          value={value}
+          onChange={handleTheSecondInputChange}
         />
         <button
           className={`button button_type_authorization ${!isButtonValid && "button_inactive"} ${isLogin && "button_type_login"}`}
