@@ -270,8 +270,8 @@ function App({ history, isOpen, onClose }) {
       <InfoTooltip
         name="info"
         nameContainer="popup__container-info"
-        isOpen={isOpen}
-        onClose={onClose} 
+        isOpen={isInfoTooltipPopupOpen}
+        onClose={closeAllPopups} 
         image={imageForInfoTooltip}
         text={textForInfoTooltip}
       />

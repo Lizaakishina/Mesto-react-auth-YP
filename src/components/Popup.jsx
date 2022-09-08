@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const Popup = ({ isOpen, name, onClose, children }) => {
+const Popup = ({ isOpen, name, onClose, children, nameContainer }) => {
 
   useEffect(() => {
     const closeByEscape = (e) => {
@@ -27,7 +27,7 @@ const Popup = ({ isOpen, name, onClose, children }) => {
       className={`popup ${isOpen ? "popup_opened" : ""} popup_type_${name}`}
       onClick={handleOverlay}
     >
-      <div className={`popup__container popup__container_${name}`}>
+      <div className={nameContainer}>
         {children}
         <button
           className='button button_type_close'
