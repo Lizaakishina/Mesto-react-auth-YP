@@ -27,38 +27,36 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   }
 
   return (
-    <>
-      <li key={card._id} className="card">
-        <button
-          className="button button_type_card"
-          type="button"
-          name="card-image"
-          onClick={handleCardClick}
-        >
-          <img className="card__image" src={card.link} alt={card.name} />
-        </button>
-        <button
-          className={cardDeleteButtonClassName}
-          type="button"
-          aria-label="Удалить картинку"
-          name="remove-image"
-          onClick={handleDeleteClick}
-        />
-        <div className="card__item">
-          <h2 className="card__text">{card.name}</h2>
-          <div className="card__like">
-            <button
-              className={cardLikeButtonClassName}
-              type="button"
-              aria-label="Поставить лайк"
-              name="like"
-              onClick={handleLikeClick}
-            />
-            <span className="card__like-item">{card.likes.length}</span>
-          </div>
+    <li className="card">
+      <button
+        className="button button_type_card"
+        type="button"
+        name="card-image"
+        onClick={handleCardClick}
+      >
+        <img className="card__image" src={card.link} alt={card.name} />
+      </button>
+      <button
+        className={cardDeleteButtonClassName}
+        type="button"
+        aria-label="Удалить картинку"
+        name="remove-image"
+        onClick={handleDeleteClick}
+      />
+      <div className="card__item">
+        <h2 className="card__text">{card.name}</h2>
+        <div className="card__like">
+          <button
+            className={cardLikeButtonClassName}
+            type="button"
+            aria-label="Поставить лайк"
+            name="like"
+            onClick={handleLikeClick}
+          />
+          <span className="card__like-item">{card.likes.length}</span>
         </div>
-      </li>
-    </>
+      </div>
+    </li>
   )
 }
 

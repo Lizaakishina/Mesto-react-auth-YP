@@ -3,11 +3,11 @@ import PopupWithForm from "./PopupWithForm";
 import Input from "./Input";
 import useFormValidation from "./../hooks/useFormValidation";
 
-function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
+function AddPlacePopup({ isOpen, onClose, onAddPlace, value }) {
   const linkInputRef = useRef();
   const nameInputRef = useRef();
   const [buttonSubmitName, setButtonSubmitName] = useState('Создать');
-  const {isButtonValid, resetValid} = useFormValidation(nameInputRef, linkInputRef);
+  const {isButtonValid, handleTheFirstInputChange, handleTheSecondInputChange, resetValid} = useFormValidation(nameInputRef, linkInputRef);
 
   useEffect(() => {
     nameInputRef.current.value='';
@@ -44,6 +44,8 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         minLength="2"
         maxLength="30"
         inputRef={nameInputRef}
+        value={value}
+        onChange={handleTheFirstInputChange}
         isOpen={isOpen}
       />
       
@@ -53,6 +55,8 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         placeholder="Ссылка на картинку"
         id="input-link"
         inputRef={linkInputRef}
+        value={value}
+        onChange={handleTheSecondInputChange}
         isOpen={isOpen}
       />
     </PopupWithForm>

@@ -3,7 +3,7 @@ import Popup from "./Popup";
 
 function PopupWithForm({ isOpen, onClose, name, title, titleBtn, onSubmit, isValid, children }) {
   return (
-    <Popup isOpen={isOpen} onClose={onClose}>
+    <Popup isOpen={isOpen} onClose={onClose} name={name}>
       <h2 className="popup__title">{title}</h2>
       <form className="form" name={name} onSubmit={onSubmit}>
         {children}
